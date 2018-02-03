@@ -1,5 +1,4 @@
 let cosmetic = require('./');
-let chalk = require('chalk');
 
 console.log(cosmetic.bold('Bold'));
 console.log(cosmetic.faint('Faint'));
