@@ -49,6 +49,13 @@ console.log(cosmetic.bright.white('Bright White'));
 console.log(cosmetic.background.white('Background White'));
 console.log(cosmetic.bright.background.white('Bright Background White'));
 
-for (let i = 0; i < 64; i++) {
-  console.log(cosmetic.xterm(i*4)(`Xterm ${i*4}`), cosmetic.xterm(i*4+1)(`Xterm ${i*4+1}`), cosmetic.xterm(i*4+2)(`Xterm ${i*4+2}`), cosmetic.xterm(i*4+3)(`Xterm ${i*4+3}`));
+let xtermString = '';
+for (let i = 0; i < 256; i++) {
+  xtermString += cosmetic.xterm(i)(` Xterm ${i}`);
 };
+console.log(xtermString)
+xtermString = '';
+for (let i = 0; i < 256; i++) {
+  xtermString += cosmetic.background.xterm(i)(` Background Xterm ${i}`);
+};
+console.log(xtermString)

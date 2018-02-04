@@ -19,7 +19,11 @@ class Cosmetic {
     // return this;
   };
   xterm(num) {
-    this.styles.unshift(new Style(`38;5;${num}`, '39'));
+    if (this.bgEnabled) {
+      this.styles.unshift(new Style(`48;5;${num}`, '49'));
+    } else {
+      this.styles.unshift(new Style(`38;5;${num}`, '39'));
+    }
     return this;
   };
   encoder(string) {
