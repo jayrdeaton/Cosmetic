@@ -38,7 +38,7 @@ class Cosmetic {
   rgb(r, g, b) {
     // Broken
     // 0 95 135 175 215 255
-    this.styles.unshift(new Style(`38;5;${r};${g};${b}`, '49'));
+    this.styles.unshift(new Style(`38;5;${r};${g};${b}`, '39'));
     return this;
   };
   get background() {

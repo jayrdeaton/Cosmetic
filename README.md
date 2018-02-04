@@ -1,14 +1,51 @@
-let cosmetic = require('./');
+# Cosmetic
 
+A plugin to color encode strings
+
+## Getting Started
+
+Here's how to get some fancy color encoded strings in your application
+
+### Installing
+
+Add this package to your project
+
+```
+npm install --save cosmetic
+```
+
+### Using
+
+Cosmetic is easy to use
+
+```
+let cosmetic = require('cosmetic');
+
+console.log(cosmetic.green('Success!'));
+```
+
+There are many different font styles
+
+```
 console.log(cosmetic.bold('Bold'));
 console.log(cosmetic.faint('Faint'));
 console.log(cosmetic.italic('Italic'));
 console.log(cosmetic.underline('Underline'));
 console.log(cosmetic.blink('Blink'));
-console.log(cosmetic.rapidBlink('Rapid Blink'));
+console.log(cosmetic.rapidBlink('Rapid Blink')); // Not always supported...
 console.log(cosmetic.reverse('Reverse'));
 console.log(cosmetic.conceal('Conceal'));
+```
 
+Styles are chainable
+
+```
+console.log(cosmetic.underline.green('Underlined green text'));
+```
+
+The basic 8 colors, regular and bright, foreground and background
+
+```
 console.log(cosmetic.black('Black'));
 console.log(cosmetic.bright.black('Bright Black'));
 console.log(cosmetic.background.black('Background Black'));
@@ -48,14 +85,23 @@ console.log(cosmetic.white('White'));
 console.log(cosmetic.bright.white('Bright White'));
 console.log(cosmetic.background.white('Background White'));
 console.log(cosmetic.bright.background.white('Bright Background White'));
+```
 
-let xtermString = '';
+Also you can use all 256 Xterm colors
+
+```
 for (let i = 0; i < 256; i++) {
-  xtermString += cosmetic.xterm(i)(` Xterm ${i}`);
+  console.log(cosmetic.xterm(i)(`Xterm ${i}`));
+  console.log(cosmetic.background.xterm(i)(`Xterm ${i} Background`));
 };
-console.log(xtermString)
-xtermString = '';
-for (let i = 0; i < 256; i++) {
-  xtermString += cosmetic.background.xterm(i)(` Background Xterm ${i}`);
-};
-console.log(xtermString)
+```
+
+Combine different styles, foreground, and background colors to completely customize your strings.  Enjoy!
+
+## Authors
+
+* **Jay Deaton** - [Github](https://github.com/jayrdeaton)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
