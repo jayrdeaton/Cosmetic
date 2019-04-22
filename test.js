@@ -9,6 +9,8 @@ console.log(cosmetic.rapidBlink('Rapid Blink'));
 console.log(cosmetic.reverse('Reverse'));
 console.log(cosmetic.conceal('Conceal'));
 
+console.log(cosmetic.random('Random'));
+
 console.log(cosmetic.black('Black'));
 console.log(cosmetic.bright.black('Bright Black'));
 console.log(cosmetic.background.black('Background Black'));

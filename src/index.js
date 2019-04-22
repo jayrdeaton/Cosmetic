@@ -34,6 +34,9 @@ class Cosmetic {
   //   this.styles.unshift(new Style(`38;5;${r};${g};${b}`, '39'));
   //   return this;
   // };
+  get random() {
+    return this.xterm(Math.round(Math.random() * 256));
+  };
   get background() {
     this.bgEnabled = true;
     return this;
