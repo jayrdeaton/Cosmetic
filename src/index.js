@@ -1,7 +1,7 @@
 const { Style } = require('./models');
 
 class Cosmetic {
-  constructor(name) {
+  constructor() {
     Object.setPrototypeOf(this.encoder, Cosmetic.prototype);
     Object.assign([], this.encoder.styles);
     return this.encoder;
@@ -18,16 +18,13 @@ class Cosmetic {
       this.styles.unshift(new Style(`48;5;${num}`, '49'));
     } else {
       this.styles.unshift(new Style(`38;5;${num}`, '39'));
-    }
+    };
     return this;
   };
   encoder(string) {
-    if (!this) console.log('here', string, this)
     let instance = this;
     if (!instance) instance = cosmetic;
-    for (let style of instance.styles) {
-      string = `${style.prefix}${string}${style.suffix}`;
-    };
+    for (let style of instance.styles) string = `${style.prefix}${string}${style.suffix}`;
     instance.setup();
     return string;
   };
