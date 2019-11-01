@@ -22,7 +22,7 @@ class Cosmetic {
     return this;
   };
   encoder(string) {
-    if (!process.stdout.isTTY) return string;
+    if (!process.stdout || !process.stdout.isTTY) return string;
     let instance = this;
     if (!instance) instance = cosmetic;
     for (let style of instance.styles) string = `${style.prefix}${string}${style.suffix}`;
