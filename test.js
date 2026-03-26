@@ -1,4 +1,4 @@
-const cosmetic = require('./');
+const cosmetic = require('./dist');
 
 console.log(cosmetic.bold('Bold'));
 console.log(cosmetic.faint('Faint'));

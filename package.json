@@ -4,7 +4,14 @@
   "description": "Color encode strings",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "build": "tsc",
+    "lint": "eslint .",
+    "fix": "eslint . --fix",
+    "test": "node test.js",
+    "compile": "tsc",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint"
   },
   "keywords": [
     "color",
@@ -15,5 +22,16 @@
   ],
   "author": "Jay Deaton",
   "license": "ISC",
-  "dependencies": {}
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/eslint__js": "^8.42.3",
+    "eslint": "^10.1.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "prettier": "^3.8.1",
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.57.2"
+  }
 }

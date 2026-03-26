@@ -1,6 +1,9 @@
 # Environmental Variables
 .env
 
+# Output Files
+dist
+
 # System Files
 .DS_Store
 
