@@ -1,21 +1,27 @@
-// @ts-nocheck
-/* eslint-disable @typescript-eslint/no-this-alias */
 import { Style } from './models'
 
 class Cosmetic {
+  styles: Style[]
+  bgEnabled: boolean
+  brightEnabled: boolean
+
   constructor() {
-    Object.setPrototypeOf(this.encoder, Cosmetic.prototype)
-    Object.assign([], this.encoder.styles)
-    return this.encoder
+    this.styles = []
+    this.bgEnabled = false
+    this.brightEnabled = false
+
+    const encoder = this.encoder as unknown as Cosmetic
+    Object.setPrototypeOf(encoder, Cosmetic.prototype)
+    return encoder
   }
-  setup() {
+  setup(): void {
     this.styles = []
     this.bgEnabled = false
     this.brightEnabled = false
     // this.xterm = this.xterm.bind(this.encoder)
     // return this;
   }
-  xterm(num) {
+  xterm(num: number): this {
     if (this.bgEnabled) {
       this.styles.unshift(new Style(`48;5;${num}`, '49'))
     } else {
@@ -23,11 +29,10 @@ class Cosmetic {
     }
     return this
   }
-  encoder(string) {
+  encoder(this: Cosmetic | undefined, string: string): string {
     if (!process.stdout || !process.stdout.isTTY) return string
-    let instance = this
-    if (!instance) instance = cosmetic
-    for (let style of instance.styles) string = `${style.prefix}${string}${style.suffix}`
+    const instance = this ?? cosmetic
+    for (const style of instance.styles) string = `${style.prefix}${string}${style.suffix}`
     instance.setup()
     return string
   }
