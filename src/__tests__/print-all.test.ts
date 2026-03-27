@@ -1,4 +1,4 @@
-import cosmetic from '../dist'
+import cosmetic from '../'
 
 type CosmeticCallable = {
   [key: string]: unknown
