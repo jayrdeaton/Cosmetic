@@ -1,0 +1,39 @@
+# Source files
+src/
+
+# Tests
+*.test.ts
+*.spec.ts
+src/tests/
+
+# Examples
+examples/
+
+# Configuration files
+tsconfig.json
+tsconfig.esm.json
+tsconfig.cjs.json
+jest.config.mjs
+jest.setup.js
+eslint.config.mjs
+prettier.config.mjs
+resolver.js
+.editorconfig
+
+# Documentation (keep only README and CHANGELOG)
+IMPROVEMENTS_SUMMARY.md
+QUICK_REFERENCE.md
+.github/
+
+# Build artifacts
+coverage/
+*.tsbuildinfo
+
+# Development
+.git/
+.gitignore
+.DS_Store
+node_modules/
+
+# CI/CD
+.github/workflows/
