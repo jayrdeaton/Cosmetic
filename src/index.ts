@@ -1,4 +1,4 @@
-import { Cosmetic, setDefaultCosmetic } from './models'
+import { Cosmetic, setDefaultCosmetic } from './models/Cosmetic.js'
 
 const cosmetic = new Cosmetic()
 setDefaultCosmetic(cosmetic)
