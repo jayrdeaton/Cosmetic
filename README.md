@@ -94,6 +94,16 @@ for (let i = 0; i < 256; i++) {
 }
 ```
 
+Or use true color (24-bit) with hex or RGB values
+
+```js
+console.log(cosmetic.hex('#ff6b35')('Hex foreground'))
+console.log(cosmetic.background.hex('#1a1a2e')('Hex background'))
+
+console.log(cosmetic.rgb(255, 107, 53)('RGB foreground'))
+console.log(cosmetic.background.rgb(26, 26, 46)('RGB background'))
+```
+
 Combine different styles, foreground, and background colors to completely customize your strings. Enjoy!
 
 ## License

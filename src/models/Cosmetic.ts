@@ -43,12 +43,21 @@ export class Cosmetic {
     instance.setup()
     return string
   }
-  // rgb(r, g, b) {
-  //   // Broken
-  //   // 0 95 135 175 215 255
-  //   this.styles.unshift(new Style(`38;5;${r};${g};${b}`, '39'));
-  //   return this;
-  // };
+  rgb(r: number, g: number, b: number): this {
+    if (this.bgEnabled) {
+      this.styles.unshift(new Style(`48;2;${r};${g};${b}`, '49'))
+    } else {
+      this.styles.unshift(new Style(`38;2;${r};${g};${b}`, '39'))
+    }
+    return this
+  }
+  hex(hexString: string): this {
+    const hex = hexString.replace(/^#/, '')
+    const r = parseInt(hex.slice(0, 2), 16)
+    const g = parseInt(hex.slice(2, 4), 16)
+    const b = parseInt(hex.slice(4, 6), 16)
+    return this.rgb(r, g, b)
+  }
   get random() {
     return this.xterm(Math.round(Math.random() * 256))
   }

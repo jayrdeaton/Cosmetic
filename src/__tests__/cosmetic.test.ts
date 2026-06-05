@@ -45,4 +45,18 @@ describe('cosmetic', () => {
     const bg = c.background as CosmeticCallable
     expect((bg.xterm as (value: number) => (value: string) => string)(42)('BG')).toBe('\x1b[48;5;42mBG\x1b[49m')
   })
+
+  test('supports hex foreground and background colors', () => {
+    expect((c.hex as (value: string) => (value: string) => string)('#ff6b35')('FG')).toBe('\x1b[38;2;255;107;53mFG\x1b[39m')
+
+    const bg = c.background as CosmeticCallable
+    expect((bg.hex as (value: string) => (value: string) => string)('#ff6b35')('BG')).toBe('\x1b[48;2;255;107;53mBG\x1b[49m')
+  })
+
+  test('supports rgb foreground and background colors', () => {
+    expect((c.rgb as (r: number, g: number, b: number) => (value: string) => string)(255, 107, 53)('FG')).toBe('\x1b[38;2;255;107;53mFG\x1b[39m')
+
+    const bg = c.background as CosmeticCallable
+    expect((bg.rgb as (r: number, g: number, b: number) => (value: string) => string)(255, 107, 53)('BG')).toBe('\x1b[48;2;255;107;53mBG\x1b[49m')
+  })
 })
