@@ -16,7 +16,7 @@ module.exports = defineConfig([
     }
   },
   {
-    ignores: ['dist/**', 'node_modules/**', 'lib/**', 'coverage/**', 'examples/**', '**/*.js', 'jest.setup.cjs', 'jest.config.cjs', 'src/__tests__/**']
+    ignores: ['dist/**', 'node_modules/**', 'lib/**', 'coverage/**', 'examples/**', '.tsup/**', '**/*.js', 'jest.setup.cjs', 'jest.config.cjs', 'src/__tests__/**', 'tsup.config.ts']
   },
   ...tsEslint.configs.recommended,
   prettierRecommended,
