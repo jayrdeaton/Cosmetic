@@ -1,6 +1,6 @@
 # Cosmetic
 
-A library to color encode strings
+A chainable ANSI color and style library for Node.js terminals
 
 ## Getting Started
 
@@ -22,89 +22,76 @@ const cosmetic = require('cosmetic')
 console.log(cosmetic.green('Success!'))
 ```
 
-There are many different font styles
+### Styles
 
 ```js
-console.log(cosmetic.bold('Bold'))
-console.log(cosmetic.faint('Faint'))
-console.log(cosmetic.italic('Italic'))
-console.log(cosmetic.underline('Underline'))
-console.log(cosmetic.blink('Blink'))
-console.log(cosmetic.rapidBlink('Rapid Blink')) // Not always supported...
-console.log(cosmetic.reverse('Reverse'))
-console.log(cosmetic.conceal('Conceal'))
+cosmetic.bold('Bold')
+cosmetic.faint('Faint')
+cosmetic.italic('Italic')
+cosmetic.underline('Underline')
+cosmetic.blink('Blink')
+cosmetic.rapidBlink('Rapid Blink') // Not always supported
+cosmetic.reverse('Reverse')
+cosmetic.conceal('Conceal')
 ```
 
-Styles are chainable
+### Colors
+
+The basic 8 colors support regular, bright, foreground, and background variants:
 
 ```js
-console.log(cosmetic.underline.green('Underlined green text'))
+cosmetic.red('Red')
+cosmetic.bright.red('Bright Red')
+cosmetic.background.red('Background Red')
+cosmetic.bright.background.red('Bright Background Red')
 ```
 
-The basic 8 colors, regular and bright, foreground and background
+Available colors: `black`, `red`, `green`, `yellow`, `blue`, `magenta`, `cyan`, `white`
+
+### Chaining
+
+Styles are chainable:
 
 ```js
-console.log(cosmetic.black('Black'))
-console.log(cosmetic.bright.black('Bright Black'))
-console.log(cosmetic.background.black('Background Black'))
-console.log(cosmetic.bright.background.black('Bright Background Black'))
-
-console.log(cosmetic.red('Red'))
-console.log(cosmetic.bright.red('Bright Red'))
-console.log(cosmetic.background.red('Background Red'))
-console.log(cosmetic.bright.background.red('Bright Background Red'))
-
-console.log(cosmetic.green('Green'))
-console.log(cosmetic.bright.green('Bright Green'))
-console.log(cosmetic.background.green('Background Green'))
-console.log(cosmetic.bright.background.green('Bright Background Green'))
-
-console.log(cosmetic.yellow('Yellow'))
-console.log(cosmetic.bright.yellow('Bright Yellow'))
-console.log(cosmetic.background.yellow('Background Yellow'))
-console.log(cosmetic.bright.background.yellow('Bright Background Yellow'))
-
-console.log(cosmetic.blue('Blue'))
-console.log(cosmetic.bright.blue('Bright Blue'))
-console.log(cosmetic.background.blue('Background Blue'))
-console.log(cosmetic.bright.background.blue('Bright Background Blue'))
-
-console.log(cosmetic.magenta('Magenta'))
-console.log(cosmetic.bright.magenta('Bright Magenta'))
-console.log(cosmetic.background.magenta('Background Magenta'))
-console.log(cosmetic.bright.background.magenta('Bright Background Magenta'))
-
-console.log(cosmetic.cyan('Cyan'))
-console.log(cosmetic.bright.cyan('Bright Cyan'))
-console.log(cosmetic.background.cyan('Background Cyan'))
-console.log(cosmetic.bright.background.cyan('Bright Background Cyan'))
-
-console.log(cosmetic.white('White'))
-console.log(cosmetic.bright.white('Bright White'))
-console.log(cosmetic.background.white('Background White'))
-console.log(cosmetic.bright.background.white('Bright Background White'))
+cosmetic.underline.green('Underlined green text')
+cosmetic.bold.bright.background.red('Bold bright red background')
 ```
 
-Also you can use all 256 Xterm colors
+### Xterm
+
+All 256 Xterm colors:
 
 ```js
-for (let i = 0; i < 256; i++) {
-  console.log(cosmetic.xterm(i)(`Xterm ${i}`))
-  console.log(cosmetic.background.xterm(i)(`Xterm ${i} Background`))
+cosmetic.xterm(42)('Foreground')
+cosmetic.background.xterm(42)('Background')
+```
+
+### True Color
+
+24-bit color via hex or RGB:
+
+```js
+cosmetic.hex('#ff6b35')('Hex foreground')
+cosmetic.background.hex('#1a1a2e')('Hex background')
+
+cosmetic.rgb(255, 107, 53)('RGB foreground')
+cosmetic.background.rgb(26, 26, 46)('RGB background')
+```
+
+## TypeScript
+
+The `Cosmetic` type represents the default export and is useful for annotating variables or parameters:
+
+```ts
+import cosmetic, { type Cosmetic } from 'cosmetic'
+
+function createLogger(color: Cosmetic) {
+  return (message: string) => color(message)
 }
+
+const warn = createLogger(cosmetic.yellow)
+const error = createLogger(cosmetic.bright.red)
 ```
-
-Or use true color (24-bit) with hex or RGB values
-
-```js
-console.log(cosmetic.hex('#ff6b35')('Hex foreground'))
-console.log(cosmetic.background.hex('#1a1a2e')('Hex background'))
-
-console.log(cosmetic.rgb(255, 107, 53)('RGB foreground'))
-console.log(cosmetic.background.rgb(26, 26, 46)('RGB background'))
-```
-
-Combine different styles, foreground, and background colors to completely customize your strings. Enjoy!
 
 ## License
 

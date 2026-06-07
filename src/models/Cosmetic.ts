@@ -24,8 +24,6 @@ export class Cosmetic {
     this.styles = []
     this.bgEnabled = false
     this.brightEnabled = false
-    // this.xterm = this.xterm.bind(this.encoder)
-    // return this;
   }
   xterm(num: number): this {
     if (this.bgEnabled) {
@@ -245,4 +243,8 @@ export class Cosmetic {
     }
     return this
   }
+}
+
+export interface Cosmetic {
+  (string: string): string
 }
