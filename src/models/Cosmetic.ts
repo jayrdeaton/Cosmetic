@@ -6,6 +6,7 @@ export const setDefaultCosmetic = (instance: Cosmetic): void => {
   defaultCosmetic = instance
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 export class Cosmetic {
   styles: Style[]
   bgEnabled: boolean
@@ -245,6 +246,7 @@ export class Cosmetic {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 export interface Cosmetic {
   (string: string): string
 }
