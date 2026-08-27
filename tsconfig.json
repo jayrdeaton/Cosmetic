@@ -1,19 +1,10 @@
 {
+  "extends": "@infinitetoken/tsconfig/tsconfig.json",
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
     "rootDir": "./src",
     "outDir": "./dist",
-    "declaration": true,
-    "declarationMap": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "skipLibCheck": true,
     "types": ["jest", "node"]
   },
   "include": ["src/**/*"],
