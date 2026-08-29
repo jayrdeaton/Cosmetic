@@ -1,6 +1,6 @@
 {
   "name": "cosmetic",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "Chainable ANSI color and style encoding for Node.js terminals",
   "keywords": [
     "ansi",
