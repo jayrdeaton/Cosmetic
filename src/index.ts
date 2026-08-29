@@ -1,4 +1,4 @@
-import { Cosmetic, setDefaultCosmetic } from './models/Cosmetic.js'
+import { Cosmetic, setDefaultCosmetic } from './models/Cosmetic'
 
 export type { Cosmetic }
 

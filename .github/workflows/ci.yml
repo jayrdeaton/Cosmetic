@@ -1,24 +1,12 @@
 name: CI
-run-name: CI — ${{ github.head_ref || github.ref_name }}
+run-name: CI - ${{ github.event.pull_request.title || github.event.head_commit.message }}
 
 on:
-  push:
-    branches: [main]
   pull_request:
-    branches: [main]
+  push:
+    branches:
+      - main
 
 jobs:
-  ci:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - run: npm ci
-
-      - run: npm run ci
+  quality:
+    uses: infinitetoken/Workflows/.github/workflows/npm-ci.yml@v1

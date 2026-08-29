@@ -35,7 +35,6 @@
   ],
   "scripts": {
     "build": "tsup",
-    "ci": "npm run lint && npm test && npm run typecheck && npm run build",
     "clean": "rm -rf dist coverage",
     "coverage": "jest --coverage",
     "fix": "eslint . --fix",
@@ -47,19 +46,19 @@
     "release:patch": "npm version patch && npm run release",
     "test": "jest",
     "typecheck": "tsc --noEmit",
-    "preversion": "npm run ci",
+    "verify": "npm run lint && npm test && npm run typecheck && npm run build",
+    "preversion": "npm run verify",
     "watch": "jest --watchAll"
   },
   "prettier": "@infinitetoken/eslint-config/prettier",
   "devDependencies": {
-    "@infinitetoken/eslint-config": "^0.1.4",
+    "@infinitetoken/eslint-config": "^0.1.7",
+    "@infinitetoken/jest-config": "^0.1.4",
     "@infinitetoken/tsconfig": "^0.3.0",
     "@types/jest": "^30.0.0",
     "eslint": "^10.4.1",
     "jest": "^30.4.2",
     "prettier": "^3.8.3",
-    "ts-jest": "^29.4.11",
-    "ts-node": "^10.9.2",
     "tsup": "^8.5.1",
     "typescript": "^6.0.3"
   }

@@ -1,12 +1,7 @@
 {
-  "extends": "@infinitetoken/tsconfig/tsconfig.json",
+  "extends": "@infinitetoken/tsconfig/node",
   "compilerOptions": {
-    "target": "esnext",
-    "module": "commonjs",
-    "rootDir": "./src",
-    "outDir": "./dist",
-    "types": ["jest", "node"]
+    "rootDir": "./src"
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "examples"]
+  "include": ["src/**/*"]
 }
