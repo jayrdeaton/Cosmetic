@@ -40,7 +40,7 @@ console.log(cosmetic.italic.bright.magenta('Italic + bright + magenta'))
 console.log(cosmetic.bold.background.blue.bright.white('Bold + bright white on blue background'))
 
 // --- Xterm 256 ---
-section('Xterm 256 — gradient sample')
+section('Xterm 256: gradient sample')
 const row = []
 for (let i = 196; i <= 231; i++) {
   row.push(cosmetic.xterm(i)('█'))
